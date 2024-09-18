@@ -3,6 +3,7 @@ package com.api.services;
 import com.api.entity.Registration;
 import com.api.payload.RegistrationDto;
 import com.api.repository.RegistrationRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,11 +12,11 @@ import java.util.List;
 public class RegistrationService {
 
     private RegistrationRepository registrationRepository;
+    private ModelMapper modelMapper;
 
-
-    public RegistrationService(RegistrationRepository registrationRepository){
+    public RegistrationService(RegistrationRepository registrationRepository, ModelMapper modelMapper){
         this.registrationRepository=registrationRepository;
-
+        this.modelMapper=modelMapper;
     }
 
     public List<Registration> getRegistrations(){
