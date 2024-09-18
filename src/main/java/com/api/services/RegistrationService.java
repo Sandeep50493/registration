@@ -51,18 +51,22 @@ public class RegistrationService {
 
     Registration mapToEntity(RegistrationDto registrationDto){
 
-        Registration registration=new Registration();
-        registration.setName(registrationDto.getName());
-        registration.setEmail(registrationDto.getEmail());
-        registration.setMobile(registrationDto.getMobile());
+       Registration registration=modelMapper.map(registrationDto, Registration.class);
+
+//        Registration registration=new Registration();
+//        registration.setName(registrationDto.getName());
+//        registration.setEmail(registrationDto.getEmail());
+//        registration.setMobile(registrationDto.getMobile());
         return registration;
     }
     RegistrationDto mapToDto(Registration registration){
 
-        RegistrationDto dto=new RegistrationDto();
-        dto.setName(registration.getName());
-        dto.setEmail(registration.getEmail());
-        dto.setMobile(registration.getMobile());
+        RegistrationDto dto=modelMapper.map(registration, RegistrationDto.class);
+
+//        RegistrationDto dto=new RegistrationDto();
+//        dto.setName(registration.getName());
+//        dto.setEmail(registration.getEmail());
+//        dto.setMobile(registration.getMobile());
         return dto;
     }
 }
