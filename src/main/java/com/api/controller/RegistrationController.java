@@ -1,6 +1,7 @@
 package com.api.controller;
 
 import com.api.entity.Registration;
+import com.api.payload.RegistrationDto;
 import com.api.services.RegistrationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +25,8 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public  ResponseEntity<Registration> createRegistration(@RequestBody Registration registration){
-        Registration reg = registrationService.createRegistration(registration);
+    public  ResponseEntity<RegistrationDto> createRegistration(@RequestBody RegistrationDto registrationDto){
+        RegistrationDto reg = registrationService.createRegistration(registrationDto);
         return new ResponseEntity<>(reg,HttpStatus.CREATED);
     }
 
